@@ -1,0 +1,9 @@
+#create_category {
+    padding-top: 30px;
+}
+
+form > .row > label {
+    padding-top: 6px;
+    padding-left: 10px;
+    padding-right: 5px;
+}

@@ -1,0 +1,43 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+}
+
+#row-login {
+    margin:auto;
+    padding:auto;
+    
+}
+
+#main-container {
+    padding-top: 200px;
+}
+
+.fa-user {
+    font-size: 80px;
+    text-align: center;
+    color:  #ff5733;
+}
+
+#label-admin-login {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.credentials {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#username, #password {
+    text-align:center;
+}
+
+.credentials > .btn-primary {
+    display: block;
+    width: 100%;
+    background-color: #ff5733;
+    color: white;
+
+}

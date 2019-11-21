@@ -1,0 +1,10 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+}
+
+.fa-user-shield {
+    color: white;
+    font-size: 40px;
+}
