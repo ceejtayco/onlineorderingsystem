@@ -42,7 +42,7 @@
                                 @enderror
                             </div>
                             <div class="form-group credentials">
-                                <button type="submit" class="btn btn-primary">{{ __('Login') }}</button>
+                                <button type="submit" class="btn btn-warning">{{ __('Login') }}</button>
                             </div>
                         </form>
                     </div>

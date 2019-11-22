@@ -8,3 +8,11 @@ body {
     color: white;
     font-size: 40px;
 }
+
+.navbar-orange {
+    background-color: #ff5733;
+}
+
+.my-cart {
+    padding-right: 20px;
+}

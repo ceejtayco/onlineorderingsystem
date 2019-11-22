@@ -1,0 +1,38 @@
+.carousel-item > img {
+    filter: brightness(50%);
+}
+
+.menu-of-the-day {
+    padding-top: 50px;
+    font-size: 45px;
+}
+
+.category-header {
+    font-size: 30px;
+}
+
+.category-row {
+    padding: 10px;
+    padding-left: 50px;
+    
+}
+
+.item-row {
+    padding-left: 50px;
+    padding-right: 40px;
+}
+
+.item-columns {
+    padding: 30px;
+}
+.category-img {
+    display:block;
+    width: 100%;
+    height: 200px;
+}
+
+.add-to-cart {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+}

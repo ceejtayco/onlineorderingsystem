@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Category;
+use App\Item;
 class HomeController extends Controller
 {
     /**
@@ -22,7 +23,12 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $category = Category::all();
+        $item = Item::all();
+        return view('home', compact('category', 'item'));
     }
+
+  
+
 }

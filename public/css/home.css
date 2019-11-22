@@ -1,0 +1,35 @@
+.menu-container {
+    padding: 30px 20px 20px 20px;
+}
+
+.menu-header {
+    font-size: 45px;
+}
+
+.category-header {
+    font-size: 25px;
+    text-align: left;
+}
+
+.category-column {
+    padding-top: 10px;
+}
+
+.category-img {
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+
+.not-available {
+    color: red;
+}
+
+.available {
+    color: limegreen;
+}
+
+.btn-add-to-cart {
+    background-color: #ff5733;
+    color: white;
+}

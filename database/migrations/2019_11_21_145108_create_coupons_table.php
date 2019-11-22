@@ -18,7 +18,7 @@ class CreateCouponsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('code')->unique();
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->decimal('percentage',10,2);
             $table->timestamps();
 

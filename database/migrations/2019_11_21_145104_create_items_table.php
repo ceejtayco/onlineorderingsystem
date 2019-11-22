@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->decimal('price',10,2);
             $table->integer('qty');
             $table->decimal('tax',10,2);

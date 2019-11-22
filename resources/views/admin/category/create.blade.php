@@ -37,7 +37,7 @@
                             <label for="description"id="form-group-description">Description</label>
                         </div>
                         <div class="col-md-9">
-                            <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" id="category-description" placeholder="Category Description" required>
+                            <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" id="category-description" placeholder="Category Description">
                             @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

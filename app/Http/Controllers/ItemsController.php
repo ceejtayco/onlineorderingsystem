@@ -32,9 +32,11 @@ class ItemsController extends Controller
 
         //FOR IMAGE
         $image = $request->file('filename');
-        $extension = $image->getClientOriginalExtension();
-        Storage::disk('public')->put($image->getFilename().'.'.$extension, File::get($image));
-
+        if(!empty($image)){
+            $extension = $image->getClientOriginalExtension();
+            Storage::disk('public')->put($image->getFilename().'.'.$extension, File::get($image));
+        }
+        
         $item = new Item;
         $item->user_id = Auth::user()->id;
         $item->category_id = $request->category_id;
@@ -43,9 +45,12 @@ class ItemsController extends Controller
         $item->price = $request->price;
         $item->tax = $request->tax;
         $item->qty = $request->qty;
-        $item->filename = $image->getFilename().'.'.$extension;
-        $item->mime = $image->getClientMimeType();
-
+        
+        if(!empty($image)){
+            $item->filename = $image->getFilename().'.'.$extension;
+            $item->mime = $image->getClientMimeType();
+        }
+        
         $item->save();
 
         return redirect('admin/manage-items');

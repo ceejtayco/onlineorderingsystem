@@ -15,13 +15,18 @@
 Route::get('/admin/login','AdminController@login')->name('admin.login');
 
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', 'HomepageController@homepage')->name('homepage');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+ // ORDER
+Route::post('/store-to-sesions-order', 'OrderController@storeToSessionData')->name('session.order.store');
+Route::get('session/get','OrderController@accessSessionData');
+// Route::get('session/set','OrderController@storeSessionData');
+
+Route::get('/get-quantity/{id}', 'OrderController@showQuantityForm')->name('quantity-form');
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/index','AdminController@index')->name('admin.index');
@@ -39,4 +44,6 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/manage-coupons', 'CouponController@index')->name('admin.coupon');
     Route::get('/admin/manage-coupons/create', 'CouponController@create')->name('admin.coupon.create');
     Route::post('/admin/manage-coupons/store', 'CouponController@store')->name('admin.coupon.store');
+
+   
 });

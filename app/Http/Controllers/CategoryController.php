@@ -23,7 +23,6 @@ class CategoryController extends Controller
         // Validate data
         $validateData = $request->validate([
             'name' => 'required|unique:categories|max:255',
-            'description' => 'required|min:3|max:255',
         ]);
 
         $category = new Category;

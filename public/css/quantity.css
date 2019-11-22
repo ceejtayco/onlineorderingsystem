@@ -1,0 +1,26 @@
+.container-fluid {
+    padding-top: 50px;
+}
+
+.category-img {
+    width: 100%;
+    height: 350px;
+    border: 1px solid lightslategray;
+}
+
+.item-details {
+    padding-top: 90px;
+}
+
+.quantity-header {
+    font-size: 30px;
+}
+
+.btn-orange {
+    background-color: #ff5733;
+    color: white;
+    display:block;
+    width: 100%;
+    margin: auto;
+    padding:auto;
+}
