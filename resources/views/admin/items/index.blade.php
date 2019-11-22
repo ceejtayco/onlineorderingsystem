@@ -1,17 +1,18 @@
 @extends('admin.index')
 @section('custom-css')
+<link rel="stylesheet" href="{{ asset('css/admin/item/index.css') }}">
 @endsection
 @section('header')
-<span class="fas fa-th" style="font-size:25px;"></span> Manage Categories
+<span class="fas fa-utensils" style="font-size:25px;"></span> Manage Menu Items
 @endsection
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Home</a></li>
-<li class="breadcrumb-item active"><a href="{{ route('admin.category') }}">Manage Categories</a></li>
+<li class="breadcrumb-item active"><a href="{{ route('admin.items') }}">Manage Menu Items</a></li>
 @endsection
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <a href="{{ route('admin.category.create') }}" class="btn btn-warning"><span class="fas fa-plus"></span>&nbsp;Add Category</a>
+        <a href="{{ route('admin.items.create') }}" class="btn btn-warning"><span class="fas fa-plus"></span>&nbsp;Add Menu Item</a>
     </div>
 </div>
 <br>
@@ -21,18 +22,24 @@
             <thead>
                 <th>ID</th>
                 <th>Category Name</th>
-                <th>Description</th>
-                <th>Date Added</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Tax</th>
+                <th>Stocks</th>
                 <th>Created By</th>
                 <th>Action</th>
             </thead>
             <tbody>
-                @foreach($category as $result)
-                    <tr>
+                @foreach($items as $result)
+                    <tr>   
                         <td>{{ $result->id }}</td>
-                        <td>{{ $result->name }}</td>
-                        <td>{{ $result->description }}</td>
-                        <td>{{ $result->created_at }}</td>
+                        <td>{{ $result->category->name }}</td>
+                        <td>
+                            {{ $result->name }}
+                        </td>
+                        <td>{{ $result->price }}</td>
+                        <td>{{ $result->tax }}</td>
+                        <td>{{ $result->qty }}</td>
                         <td>{{ $result->user->firstname }} {{ $result->user->lastname }}</td>
                         <td>
                             <a href="" class="btn btn-warning">
@@ -46,7 +53,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $category->links() }}
+        {{ $items->links() }}
     </div>
 </div>
 @endsection

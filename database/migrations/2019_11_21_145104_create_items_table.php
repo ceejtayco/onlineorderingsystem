@@ -23,6 +23,8 @@ class CreateItemsTable extends Migration
             $table->integer('qty');
             $table->decimal('tax',10,2);
             $table->timestamps();
+            $table->string('filename')->nullable();
+            $table->string('mime')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');

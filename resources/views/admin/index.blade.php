@@ -108,10 +108,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.items') }}" class="nav-link">
               <i class="nav-icon fas fa-utensils"></i>
               <p>
                 Menu Items
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.coupon') }}" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                Coupons
               </p>
             </a>
           </li>
@@ -179,10 +187,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+      Online Ordering Menu System
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="{{ route('admin.index') }}">TestTest</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

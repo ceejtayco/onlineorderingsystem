@@ -129,7 +129,7 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
+        'category' => [
             'rule-name' => 'custom-message',
         ],
     ],
