@@ -38,7 +38,7 @@
                             {{ $result->name }}
                         </td>
                         <td>{{ $result->price }}</td>
-                        <td>{{ $result->tax }}</td>
+                        <td>{{ intval($result->tax) }}%</td>
                         <td>{{ $result->qty }}</td>
                         <td>{{ $result->user->firstname }} {{ $result->user->lastname }}</td>
                         <td>

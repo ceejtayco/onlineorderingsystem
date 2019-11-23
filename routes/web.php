@@ -24,7 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
  // ORDER
 Route::post('/store-to-sesions-order', 'OrderController@storeToSessionData')->name('session.order.store');
 Route::get('session/get','OrderController@accessSessionData');
-// Route::get('session/set','OrderController@storeSessionData');
+Route::get('/my-orders', 'OrderController@showMyOrders')->name('myorders');
+Route::get('/checkout', 'OrderController@checkOut')->name('checkout');
 
 Route::get('/get-quantity/{id}', 'OrderController@showQuantityForm')->name('quantity-form');
 

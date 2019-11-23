@@ -50,7 +50,6 @@ class ItemsController extends Controller
             $item->filename = $image->getFilename().'.'.$extension;
             $item->mime = $image->getClientMimeType();
         }
-        
         $item->save();
 
         return redirect('admin/manage-items');
