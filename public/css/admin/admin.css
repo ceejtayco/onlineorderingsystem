@@ -1,0 +1,8 @@
+.order-summary-header {
+    font-size: 20px;
+}
+
+.order-summary-card, .item-summary-card {
+    height: 550px;
+    overflow-y: auto;
+}

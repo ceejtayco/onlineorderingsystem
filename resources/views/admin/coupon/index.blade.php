@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.header')
 @section('custom-css')
 @endsection
 @section('header')

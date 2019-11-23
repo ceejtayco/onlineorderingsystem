@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.header')
 @section('custom-css')
 @endsection
 @section('header')
@@ -31,7 +31,13 @@
                     <tr>
                         <td>{{ $result->id }}</td>
                         <td>{{ $result->name }}</td>
-                        <td>{{ $result->description }}</td>
+                        <td>
+                            @if(!empty($result->description))
+                                {{ $result->description }}
+                            @else
+                                N/A
+                            @endif
+                        </td>
                         <td>{{ $result->created_at }}</td>
                         <td>{{ $result->user->firstname }} {{ $result->user->lastname }}</td>
                         <td>

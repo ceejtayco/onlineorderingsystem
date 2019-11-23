@@ -8,6 +8,7 @@ use App\Coupon;
 use App\Order_Details;
 use App\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
     public function index(Request $request) {
@@ -76,8 +77,8 @@ class OrderController extends Controller
                 $amount = number_format($price - ($price/$tax),2,'.',',');
                 $price_qty = number_format($price * $session['qty'],2,'.',',');
 
-                $total_vat_amount += $amount * $session['qty'];
-                $total_amount += $price_qty;
+                $total_vat_amount += number_format($amount * $session['qty'], 2, '.', ',');
+                $total_amount += number_format($price_qty, 2, '.', ',');
                 $total_gross += $gross * $session['qty'];
                 
                 
@@ -133,9 +134,7 @@ class OrderController extends Controller
                 $total_amount += $price_qty;
                 $total_gross += $gross * $session['qty'];
                 
-                
 
-                
                 array_push($orders, [
                     'item_id' => $item->id,
                     'name' => $item->name,
@@ -153,14 +152,60 @@ class OrderController extends Controller
         $order->user_id = Auth::user()->id;
         $order->subtotal = $total_gross;
         $order->totaltax = $total_vat_amount;
+        $discount_array = [];
         if($coupon > 0) {
+            $coupon_percentage = Coupon::where('code', $request->coupon)->first();
+            $order->coupon_id = $coupon_percentage['id'];
             
+            // Calculate discount
+            $discount = $coupon_percentage['percentage']/100;
+            $total_pay = number_format($total_amount - ($total_amount * $discount), 2, '.', ',');
+            $order->total = $total_pay;
+
+            array_push($discount_array,[
+                'coupon' => $request->code,
+                'discount' => intval($coupon_percentage['percentage']).'%',
+                'totalpay' => $total_pay
+            ]);
+        }else{
+            
+            $order->total = $total_amount;
         }
+        $order->save();
+
+        // SAVE TO ORDER DETAILS
+        $order_id = Order::latest('id')->first();
         
-        return view('checkout', compact('coupon'));
+        foreach($orders as $items) {
+            $order_details = new Order_Details;
+            $order_details->order_id = $order_id['id'];
+            $order_details->item_id = $items['item_id'];
+            $order_details->qty = $items['qty'];
+            $order_details->subtotal = $items['subtotal'];
+            $order_details->save();
+
+            $update_item = Item::find($items['item_id']);
+            $update_item->qty = $update_item->qty - $items['qty'];
+            $update_item->save();
+        }
+
+        $request->session()->forget('item');
+        return view('checkout', compact('coupon','orders','total_vat_amount', 'total_amount', 'total_gross', 'discount_array'));
     }
 
-    public function deleteFunction(Request $request) {
-
+    public function deleteItemFromSession(Request $request) {
+        
+        $count = 0;
+        $item_session = $request->session()->get('item');
+        $keys = array_keys($item_session);
+        
+        foreach($item_session as $item) {
+            if($item['item_id'] == $request->item_id) {
+                $request->session()->forget('item.'.$keys[$count]);
+            }
+            $count++;
+        }
+        
+        return redirect()->route('myorders');
     }
 }

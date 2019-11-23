@@ -46,4 +46,7 @@ class User extends Authenticatable
     public function coupon() {
         return $this->hasMany('App\Coupon');
     }
+    public function order() {
+        return $this->hasMany('App\Order');
+    }
 }

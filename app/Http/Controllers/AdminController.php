@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Order;
+use App\Order_Details;
 class AdminController extends Controller
 {
     public function login() {
@@ -21,6 +23,8 @@ class AdminController extends Controller
     }
 
     public function index() {
-        return view('admin.index');
+        $orders = Order::all();
+        $order_details = Order_Details::all();
+        return view('admin.index', compact('orders', 'order_details'));
     }
 }

@@ -17,8 +17,9 @@
                                             <div class="card-body">
                                                 <h4 class="display-4 order-name">{{ $order['name'] }}</h4>
                                                 <div class="pull-right">
-                                                    <form action="" id="closebutton">
-                                                        <button type="submit" class="form-control"><span class="fa fa-times"></span></button>
+                                                    <form action=" {{ route('delete-item') }} " id="closebutton">
+                                                        <input type="hidden" name="item_id" value=" {{ $order['item_id'] }} ">
+                                                        <button type="submit" name="submit" id="submit" value="submit" class="form-control"><span class="fa fa-times"></span></button>
                                                     </form>
                                                 </div>
                                                 <div class="row justify-content-md-center image-details-row">
@@ -50,7 +51,6 @@
                                                                     <th>Subtotal</th>
                                                                     <td>&#8369;{{ $order['subtotal'] }}</td>
                                                                 </tr>
-                                                               
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -71,11 +71,11 @@
                                 <tbody>
                                     <tr>
                                         <th>Subtotal</th>
-                                        <td>&#8369;{{ $total_gross }}</td>
+                                        <td>&#8369;{{ number_format($total_gross, 2, '.', ',') }}</td>
                                     </tr>
                                     <tr>
                                         <th>Tax</th>
-                                        <td>&#8369;{{ $total_vat_amount }}</td>
+                                        <td>&#8369;{{ number_format($total_vat_amount, 2, '.', ',') }}</td>
                                     </tr>
                                     <tr>
                                         <th>Total Due</th>

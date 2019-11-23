@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('admin.header')
 @section('custom-css')
 <link rel="stylesheet" href="{{ asset('css/admin/item/index.css') }}">
 @endsection

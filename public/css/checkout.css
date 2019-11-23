@@ -1,0 +1,18 @@
+.order-summary-header{
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.order-summary-col {
+    padding-top: 40px;
+}
+
+.btn-orange {
+    background-color: #ff5733;
+    color: white;
+}
+
+.pull-right {
+    padding-top: 20px;
+}

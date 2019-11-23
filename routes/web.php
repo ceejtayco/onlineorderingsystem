@@ -26,6 +26,7 @@ Route::post('/store-to-sesions-order', 'OrderController@storeToSessionData')->na
 Route::get('session/get','OrderController@accessSessionData');
 Route::get('/my-orders', 'OrderController@showMyOrders')->name('myorders');
 Route::get('/checkout', 'OrderController@checkOut')->name('checkout');
+Route::get('/delete-item', 'OrderController@deleteItemFromSession')->name('delete-item');
 
 Route::get('/get-quantity/{id}', 'OrderController@showQuantityForm')->name('quantity-form');
 
