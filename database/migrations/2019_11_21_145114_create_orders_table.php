@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->decimal('subtotal',10,2);
             $table->decimal('totaltax',10,2);
-            $table->unsignedBigInteger('coupon_id');
+            $table->unsignedBigInteger('coupon_id')->nullable();
             $table->decimal('total',10,2);
             $table->timestamps();
 
